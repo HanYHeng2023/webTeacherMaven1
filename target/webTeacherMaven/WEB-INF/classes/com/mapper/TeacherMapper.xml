@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ITeacherMapper">
+
+<select id="findPageAll"   parameterType="com.po.PageBean" resultType="com.po.Teacher">
+select * from teacher order by tno limit ${(page-1)*rows},#{rows}
+</select>
+
+
+    <select id="maxRows"    resultType="Integer">
+    select count(*) from teacher
+</select>
+
+
+</mapper>
